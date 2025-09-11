@@ -1,11 +1,24 @@
 ﻿using Investimento_Financeiro.TesouroSelic;
+int opcao;
+do
+{
+    Console.WriteLine("[0] - Sair");
+    Console.WriteLine("[1] - Tesouro Selic");
+    Console.WriteLine("[2]");
+    Console.WriteLine("[3]");
+    Console.WriteLine("[4]");
+    opcao = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Informe o capital inicial: ");
-double capitalInicial = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Informe a taxa anual: ");
-double taxaAnual = Convert.ToDouble(Console.ReadLine());
-Console.WriteLine("Informe o período em anos: ");
-int periodo = Convert.ToInt32(Console.ReadLine());
-
-decimal montante = TesouroSelic.Calcular(capitalInicial, taxaAnual, periodo);
-Console.WriteLine(montante);
+    switch (opcao)
+    {
+        case 1:
+            Console.WriteLine("Informe o Investimento Inicial: ");
+            decimal investimentoInicial = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Informe o Aporte Mensal: ");
+            decimal aporteMensal = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Informe o período em meses: ");
+            int periodo = Convert.ToInt32(Console.ReadLine());
+            TesouroSelic.CalculoSelic(investimentoInicial, aporteMensal, periodo);
+            break;
+    }
+} while (opcao != 0);

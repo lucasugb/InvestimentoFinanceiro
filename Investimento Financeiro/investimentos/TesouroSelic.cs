@@ -8,10 +8,26 @@ namespace Investimento_Financeiro.TesouroSelic
 {
     public class TesouroSelic
     {
-        public static decimal Calcular(double capitalInicial, double taxaAnual, int periodo)
+        public static decimal CalculoSelic(decimal investimentoInicial, decimal aporteMensal, int periodo)
         {
-            double montante = capitalInicial * Math.Pow(1 + taxaAnual, periodo);
-            return (decimal)montante;
+            decimal montante = investimentoInicial;
+            decimal jurosAcumulado = 0;
+            decimal totalInvestido = investimentoInicial;
+            decimal taxaMensal = 0.0117m;
+
+            Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
+
+            for (int mes = 1; mes <= periodo; mes++)
+            {
+                decimal jurosMes = montante * taxaMensal;
+                montante += jurosMes;
+                jurosAcumulado += jurosMes;
+                montante += aporteMensal;
+                totalInvestido += aporteMensal;
+
+                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
+            }
+            return montante;
         }
     }
 }
