@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investimento_Financeiro.TesouroSelic
+namespace Investimento_Financeiro.investimentos
 {
-    public class TesouroSelic
+    public class TesouroIPCA
     {
-        public static decimal CalculoSelic(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
+        public static decimal CalculoIPCA(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
 
             if (unidade == "A") { }
@@ -42,5 +42,7 @@ namespace Investimento_Financeiro.TesouroSelic
             }
             return montante;
         }
+    }
+}
     }
 }
