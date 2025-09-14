@@ -1,25 +1,28 @@
-﻿using System;
+﻿using Investimento_Financeiro.TesouroSelic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investimento_Financeiro.TesouroSelic
-{
-    public class TesouroSelic
+namespace Investimento_Financeiro.investimentos
     {
-        public static decimal CalculoSelic(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
+    public class Poupança
+    {
+        public static decimal CalculoPoupanca(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
+
             if (unidade == "A") { }
             else if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
 
+
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaMensal = (decimal)Math.Pow(1.15, 1.0 / 12.0) - 1;
+            decimal taxaMensal = 0;
             bool aviso = false;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
@@ -43,3 +46,4 @@ namespace Investimento_Financeiro.TesouroSelic
         }
     }
 }
+

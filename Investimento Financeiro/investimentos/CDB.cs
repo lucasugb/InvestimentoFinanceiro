@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investimento_Financeiro.TesouroSelic
+namespace Investimento_Financeiro.investimentos
 {
-    public class TesouroSelic
+    public class CDB
     {
-        public static decimal CalculoSelic(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
+        public static decimal CalculoCDB(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
+
             if (unidade == "A") { }
             else if (unidade == "B")
             {
@@ -19,7 +20,7 @@ namespace Investimento_Financeiro.TesouroSelic
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaMensal = (decimal)Math.Pow(1.15, 1.0 / 12.0) - 1;
+            decimal taxaMensal = (decimal)Math.Pow(1.1490, 1.0 / 12.0) - 1;
             bool aviso = false;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
