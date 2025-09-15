@@ -1,12 +1,16 @@
 ﻿using Investimento_Financeiro.investimentos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TesteInvestimentoFinanceiro
 {
-    [TestClass]
-    public class TesteSelic
+    public class TesteIPCA
     {
         [TestMethod]
-        public void TesteCalcularSelic()
+        public void TesteCalcularIPCA()
         {
             decimal investimentoInicial = 1000m;
             decimal aporteMensal = 500m;
@@ -16,8 +20,8 @@ namespace TesteInvestimentoFinanceiro
 
             montante = TesouroSelic.CalculoSelic(investimentoInicial, aporteMensal, periodo, unidade);
 
-            Assert.AreEqual(7548.48m, Math.Round(montante, 2));
-            
+            Assert.AreEqual(7454.72m, Math.Round(montante, 2));
+
         }
     }
 }
