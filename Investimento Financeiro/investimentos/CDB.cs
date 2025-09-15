@@ -17,16 +17,17 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
+            double cdi = 0.1290;
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaMensal = (decimal)Math.Pow(1.1490, 1.0 / 12.0) - 1;
+            decimal taxaCdiMensal = (decimal)Math.Pow(1 + (1 + cdi), 1.0 / 12.0) - 1;
             bool aviso = false;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
             for (int mes = 1; mes <= periodo; mes++)
             {
-                decimal jurosMes = montante * taxaMensal;
+                decimal jurosMes = montante * taxaCdiMensal;
                 montante += jurosMes;
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;

@@ -1,5 +1,4 @@
 ﻿using Investimento_Financeiro.investimentos;
-using Investimento_Financeiro.TesouroSelic;
 int opcao;
 do
 {
@@ -39,6 +38,9 @@ do
             break;
         case 3:
             CDB.CalculoCDB(investimentoInicial, aporteMensal, periodo, unidade);
+            break;
+        case 4:
+            Poupanca.CalculoPoupanca(investimentoInicial, aporteMensal, periodo, unidade);
             break;
         default:
             Console.WriteLine("Opção inválida, tente novamente.");

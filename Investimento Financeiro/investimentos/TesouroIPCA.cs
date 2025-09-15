@@ -17,12 +17,14 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            decimal taxaFixa = (decimal)Math.Pow(1.0753, 1.0 / 12.0) - 1;
-            decimal ipca = (decimal)Math.Pow(1.0445, 1.0 / 12.0) - 1; ;
+            double taxaFixaAnual = 0.0753;
+            double taxaIpcaAnual = 0.0445;
+            decimal taxaFixaMensal = (decimal)Math.Pow(1 + (taxaFixaAnual), 1.0 / 12.0) - 1;
+            decimal ipca = (decimal)Math.Pow((1 + taxaIpcaAnual), 1.0 / 12.0) - 1; ;
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaMensal = (1 + taxaFixa) * (1 + ipca) - 1;
+            decimal taxaMensal = (1 + taxaFixaMensal) * (1 + ipca) - 1;
             bool aviso = false;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
