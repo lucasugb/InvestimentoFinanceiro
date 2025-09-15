@@ -16,12 +16,6 @@ namespace Investimento_Financeiro.investimentos
             {
                 periodo = periodo * 12;
             }
-            else
-            {
-                Console.WriteLine("Vou fingir que você escolheu A :)");
-
-            }
-
 
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;

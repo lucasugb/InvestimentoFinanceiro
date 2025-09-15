@@ -16,10 +16,7 @@ namespace Investimento_Financeiro.investimentos
             {
                 periodo = periodo * 12;
             }
-            else
-            {
-                Console.WriteLine("Vou fingir que você escolheu A :)");
-            }
+
 
             double cdi = 0.1290;
             decimal montante = investimentoInicial;
