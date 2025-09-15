@@ -16,6 +16,10 @@ namespace Investimento_Financeiro.investimentos
             {
                 periodo = periodo * 12;
             }
+            else
+            {
+                Console.WriteLine("Vou fingir que você escolheu A :)");
+            }
 
             double taxaFixaAnual = 0.0753;
             double taxaIpcaAnual = 0.0445;
