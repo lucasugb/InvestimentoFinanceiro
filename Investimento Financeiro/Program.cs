@@ -17,14 +17,11 @@ do
     Console.WriteLine("[A] - Meses");
     Console.WriteLine("[B] - Anos");
     string unidade = Console.ReadLine().ToUpper();
-    if (unidade != "A" && unidade != "B")
-    {
         do
         {
             Console.WriteLine("Opção inválida, tente novamente.");
             unidade = Console.ReadLine().ToUpper();
         } while (unidade != "A" && unidade != "B");
-    }
     Console.WriteLine("Informe o período: ");
     int periodo = Convert.ToInt32(Console.ReadLine());
 
