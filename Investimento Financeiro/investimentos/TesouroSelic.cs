@@ -32,7 +32,7 @@ namespace Investimento_Financeiro.investimentos
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
 
-                if (!aviso && jurosMes > aporteMensal)
+                if (aviso == false && jurosMes > aporteMensal)
                 {
                     Console.WriteLine($"O juros mensal ultrapassou o aporte mensal");
                     aviso = true;
