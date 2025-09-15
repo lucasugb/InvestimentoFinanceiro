@@ -34,7 +34,7 @@ namespace Investimento_Financeiro.investimentos
             {
                 taxaPoupançaMensal = (decimal)Math.Pow(selicAnual + taxaReferencial, 1.0 / 12.0);
             }
-                decimal montante = investimentoInicial;
+            decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
             bool aviso = false;

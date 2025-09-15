@@ -19,10 +19,11 @@ namespace Investimento_Financeiro.investimentos
             else
             {
                 Console.WriteLine("Vou fingir que você escolheu A :)");
+
             }
 
 
-                decimal montante = investimentoInicial;
+            decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
             decimal taxaMensal = (decimal)Math.Pow((1 + taxaSelicAnual), 1.0 / 12.0) - 1;
