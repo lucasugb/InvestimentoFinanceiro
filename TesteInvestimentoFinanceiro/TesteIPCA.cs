@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TesteInvestimentoFinanceiro
 {
+    [TestClass]
     public class TesteIPCA
     {
         [TestMethod]
@@ -18,7 +19,7 @@ namespace TesteInvestimentoFinanceiro
             decimal montante;
             string unidade = "A";
 
-            montante = TesouroSelic.CalculoSelic(investimentoInicial, aporteMensal, periodo, unidade);
+            montante = TesouroIPCA.CalculoIPCA(investimentoInicial, aporteMensal, periodo, unidade);
 
             Assert.AreEqual(7454.72m, Math.Round(montante, 2));
 

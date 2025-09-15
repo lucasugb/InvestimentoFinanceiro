@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TesteInvestimentoFinanceiro
 {
+    [TestClass]
     public class TestePoupanca
     {
         [TestMethod]
@@ -18,7 +19,7 @@ namespace TesteInvestimentoFinanceiro
             decimal montante;
             string unidade = "A";
 
-            montante = TesouroSelic.CalculoSelic(investimentoInicial, aporteMensal, periodo, unidade);
+            montante = Poupanca.CalculoPoupanca(investimentoInicial, aporteMensal, periodo, unidade);
 
             Assert.AreEqual(7309.54m, Math.Round(montante, 2));
 
