@@ -22,7 +22,7 @@ namespace Investimento_Financeiro.investimentos
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaCdiMensal = (decimal)Math.Pow(1 + (1 + cdi), 1.0 / 12.0) - 1;
+            decimal taxaCdiMensal = (decimal)Math.Pow((1 + cdi), 1.0 / 12.0) - 1;
             bool aviso = false;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
