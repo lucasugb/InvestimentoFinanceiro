@@ -28,6 +28,7 @@ namespace Investimento_Financeiro.investimentos
             decimal totalInvestido = investimentoInicial;
             decimal taxaMensal = (1 + taxaFixaMensal) * (1 + ipca) - 1;
             bool aviso = false;
+            int mesSuperado = 0;
             Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
             for (int mes = 1; mes <= periodo; mes++)
@@ -37,15 +38,18 @@ namespace Investimento_Financeiro.investimentos
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
+                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
 
                 if (aviso == false && jurosMes > aporteMensal)
                 {
-                    Console.WriteLine($"O juros mensal ultrapassou o aporte mensal");
+                    mesSuperado = mes;
                     aviso = true;
                 }
 
-                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
+                
             }
+            if (aviso == true)
+                Console.WriteLine($"O juros mensal ultrapassou o aporte mensal no {mesSuperado}º mês.");
 
             return montante;
         }

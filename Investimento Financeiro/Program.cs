@@ -112,6 +112,8 @@ do
             periodo = Convert.ToInt32(Console.ReadLine());
             decimal sumario = Comparar.Comparacao(investimentoInicial, aporteMensal, periodo, unidade);
             break;
+        case 0:
+            break;
         default:
             Console.WriteLine("Opção inválida, tente novamente.");
             break;
