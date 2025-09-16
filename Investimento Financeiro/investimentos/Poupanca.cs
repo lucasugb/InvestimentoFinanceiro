@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Investimento_Financeiro.investimentos
 {
+
     public class Poupanca
     {
+        public static double referencial = 0.0017;
         public static decimal CalculoPoupanca(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
 
@@ -18,9 +20,9 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            double taxaReferencial = 0.0017;
+            double taxaReferencial = Poupanca.referencial;
             double selicAnual = TesouroSelic.taxaSelicAnual;
-            decimal taxaPoupançaMensal = 0;
+            decimal taxaPoupançaMensal;
 
             if (selicAnual > 0.085)
             {

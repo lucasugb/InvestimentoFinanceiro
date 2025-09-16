@@ -31,7 +31,7 @@ namespace Investimento_Financeiro.investimentos
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
-
+                
                 if (aviso == false && jurosMes > aporteMensal)
                 {
                     Console.WriteLine($"O juros mensal ultrapassou o aporte mensal");
@@ -41,6 +41,6 @@ namespace Investimento_Financeiro.investimentos
                 Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
             }
             return montante;
-        }
+        } 
     }
 }

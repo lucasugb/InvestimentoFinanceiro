@@ -7,6 +7,7 @@ do
     Console.WriteLine("[2] - Tesouro IPCA+");
     Console.WriteLine("[3] - CDB");
     Console.WriteLine("[4] - Poupança");
+    Console.WriteLine("[5] - Comparar Montante Final de Investimentos");
     opcao = int.Parse(Console.ReadLine());
 
     switch (opcao)
@@ -90,6 +91,26 @@ do
             Console.WriteLine("Informe o período: ");
             periodo = Convert.ToInt32(Console.ReadLine());
             Poupanca.CalculoPoupanca(investimentoInicial, aporteMensal, periodo, unidade);
+            break;
+        case 5:
+            Console.WriteLine("Informe o Investimento Inicial: ");
+            investimentoInicial = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Informe o Aporte Mensal: ");
+            aporteMensal = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("[A] - Meses");
+            Console.WriteLine("[B] - Anos");
+            unidade = Console.ReadLine().ToUpper();
+            if (unidade != "A" && unidade != "B")
+            {
+                do
+                {
+                    Console.WriteLine("Opção inválida, tente novamente.");
+                    unidade = Console.ReadLine().ToUpper();
+                } while (unidade != "A" && unidade != "B");
+            }
+            Console.WriteLine("Informe o período: ");
+            periodo = Convert.ToInt32(Console.ReadLine());
+            decimal sumario = Comparar.Comparacao(investimentoInicial, aporteMensal, periodo, unidade);
             break;
         default:
             Console.WriteLine("Opção inválida, tente novamente.");

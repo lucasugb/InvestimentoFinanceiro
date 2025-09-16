@@ -8,6 +8,8 @@ namespace Investimento_Financeiro.investimentos
 {
     public class TesouroIPCA
     {
+        public static double FixaAnual = 0.0753;
+        public static double ipcaAnual = 0.0445;
         public static decimal CalculoIPCA(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
 
@@ -17,8 +19,8 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            double taxaFixaAnual = 0.0753;
-            double taxaIpcaAnual = 0.0445;
+            double taxaFixaAnual = TesouroIPCA.FixaAnual;
+            double taxaIpcaAnual = TesouroIPCA.ipcaAnual;
             decimal taxaFixaMensal = (decimal)Math.Pow(1 + (taxaFixaAnual), 1.0 / 12.0) - 1;
             decimal ipca = (decimal)Math.Pow((1 + taxaIpcaAnual), 1.0 / 12.0) - 1; ;
             decimal montante = investimentoInicial;
@@ -44,6 +46,7 @@ namespace Investimento_Financeiro.investimentos
 
                 Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
             }
+
             return montante;
         }
     }
