@@ -22,15 +22,15 @@ namespace Investimento_Financeiro.investimentos
 
             double taxaReferencial = Poupanca.referencial;
             double selicAnual = TesouroSelic.taxaSelicAnual;
-            decimal taxaPoupançaMensal;
+            decimal taxaPoupancaMensal;
 
             if (selicAnual > 0.085)
             {
-                taxaPoupançaMensal = 0.005m + (decimal)taxaReferencial;
+                taxaPoupancaMensal = 0.005m + (decimal)taxaReferencial;
             }
             else
             {
-                taxaPoupançaMensal = (decimal)taxaReferencial + ((decimal)Math.Pow(selicAnual, 1.0 / 12.0) * 0.7m);
+                taxaPoupancaMensal = (decimal)taxaReferencial + ((decimal)Math.Pow(selicAnual, 1.0 / 12.0) * 0.7m);
             }
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
@@ -41,7 +41,7 @@ namespace Investimento_Financeiro.investimentos
 
             for (int mes = 1; mes <= periodo; mes++)
             {
-                decimal jurosMes = montante * taxaPoupançaMensal;
+                decimal jurosMes = montante * taxaPoupancaMensal;
                 montante += jurosMes;
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
