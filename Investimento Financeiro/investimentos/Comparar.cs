@@ -10,8 +10,7 @@ namespace Investimento_Financeiro.investimentos
     {
         public static decimal Comparacao(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
-            if (unidade == "A") { }
-            else if (unidade == "B")
+            if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
@@ -47,8 +46,8 @@ namespace Investimento_Financeiro.investimentos
             decimal montantePoupanca = (investimentoInicial * z) + (aporteMensal * ((z - 1) / (decimal)taxaPoupançaMensal));
 
 
-            Console.WriteLine($"MONTANTE SELIC\tMONTANTE IPCA\tMONTANTE CDB\tMONTANTE POUPANÇA");
-            Console.WriteLine($"{montanteSelic:C}\t{montanteIpca:C}\t{montanteCDB:C}\t{montantePoupanca:C}");
+            Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20}", "Montante Selic", "Montante IPCA+", "Montante CDB", "Montante Poupança");
+            Console.WriteLine("{0,-20:C2} {1,-20:C2} {2,-20:C2} {3,-20:C2}", montanteSelic, montanteIpca, montanteCDB, montantePoupanca);
             return 0;
         }
     }

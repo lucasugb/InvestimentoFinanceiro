@@ -11,9 +11,7 @@ namespace Investimento_Financeiro.investimentos
         public static double cdi = 0.129;
         public static decimal CalculoCDB(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
-
-            if (unidade == "A") { }
-            else if (unidade == "B")
+            if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
@@ -26,7 +24,7 @@ namespace Investimento_Financeiro.investimentos
             decimal taxaCdiMensal = (decimal)Math.Pow((1 + taxaCdi), 1.0 / 12.0) - 1;
             bool aviso = false;
             int mesSuperado = 0;
-            Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
+            Console.WriteLine("{0,-5} {1,-20} {2,-20} {3,-20} {4,-20}", "Mês", "Juros Mês", "Total Investido", "Juros Acumulado", "Montante");
 
             for (int mes = 1; mes <= periodo; mes++)
             {
@@ -35,7 +33,7 @@ namespace Investimento_Financeiro.investimentos
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
-                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
+                Console.WriteLine("{0,-5} {1,-20:C2} {2,-20:C2} {3,-20:C2} {4,-20:C2}", mes, jurosMes, totalInvestido, jurosAcumulado, montante);
                 if (aviso == false && jurosMes > aporteMensal)
                 {
                     mesSuperado = mes;

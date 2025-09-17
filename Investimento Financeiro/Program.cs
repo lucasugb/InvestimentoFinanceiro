@@ -12,12 +12,12 @@ else
 double TPoupancaA = Math.Pow((1 + TPoupancaM), 12) - 1;
 do
 {
-    Console.WriteLine("[0] - Sair");
+    Console.WriteLine($"[0] - Sair");
     Console.WriteLine($"[1] - Tesouro Selic....{TesouroSelic.taxaSelicAnual * 100:F2}% a.a.");
     Console.WriteLine($"[2] - Tesouro IPCA+....{((1 + TesouroIPCA.ipcaAnual) * (1 + TesouroIPCA.FixaAnual) - 1) * 100:F2}% a.a.");
     Console.WriteLine($"[3] - CDB..............{CDB.cdi * 100:F2}% a.a.");
     Console.WriteLine($"[4] - Poupança.........{TPoupancaA * 100:F2}% a.a. ");
-    Console.WriteLine("[5] - Comparar Montante Final de Investimentos");
+    Console.WriteLine($"[5] - Comparar Montantes Finais de Investimentos");
     string opcaoString = Console.ReadLine();
     if (int.TryParse(opcaoString, out opcao))
     {
@@ -307,6 +307,7 @@ do
                         Console.WriteLine("Opção inválida, tente novamente.");
                     }
                 }
+                Comparar.Comparacao(investimentoInicial, aporteMensal, periodo, unidade);
                 break;
 
             case 0:
