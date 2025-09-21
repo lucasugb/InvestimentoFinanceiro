@@ -13,7 +13,9 @@ namespace Investimento_Financeiro.investimentos
         public static double referencial = 0.0017;
         public static decimal CalculoPoupanca(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
-            if (unidade == "B")
+
+            if (unidade == "A") { }
+            else if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
@@ -35,7 +37,7 @@ namespace Investimento_Financeiro.investimentos
             decimal totalInvestido = investimentoInicial;
             bool aviso = false;
             int mesSuperado = 0;
-            Console.WriteLine("{0,-5} {1,-20} {2,-20} {3,-20} {4,-20}", "Mês", "Juros Mês", "Total Investido", "Juros Acumulado", "Montante");
+            Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
 
             for (int mes = 1; mes <= periodo; mes++)
             {
@@ -44,7 +46,7 @@ namespace Investimento_Financeiro.investimentos
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
-                Console.WriteLine("{0,-5} {1,-20:C2} {2,-20:C2} {3,-20:C2} {4,-20:C2}", mes, jurosMes, totalInvestido, jurosAcumulado, montante);
+                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
 
                 if (aviso == false && jurosMes > aporteMensal)
                 {
@@ -52,12 +54,13 @@ namespace Investimento_Financeiro.investimentos
                     aviso = true;
                 }
 
-                
+
             }
             if (aviso == true)
                 Console.WriteLine($"O juros mensal ultrapassou o aporte mensal no {mesSuperado}º mês.");
 
             return montante;
         }
+
     }
 }
