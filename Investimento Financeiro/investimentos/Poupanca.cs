@@ -13,9 +13,7 @@ namespace Investimento_Financeiro.investimentos
         public static double referencial = 0.0017;
         public static decimal CalculoPoupanca(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
-
-            if (unidade == "A") { }
-            else if (unidade == "B")
+            if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
