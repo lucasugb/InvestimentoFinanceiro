@@ -8,39 +8,34 @@ namespace Investimento_Financeiro.investimentos
 {
     public class Comparar
     {
-        public static decimal Comparacao(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
+        public static void Comparacao(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
             if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
-            double selicAnual = TesouroSelic.taxaSelicAnual;
-            double taxaMensalSelic = Math.Pow((1 + selicAnual), 1.0 / 12.0) - 1;
+            double taxaMensalSelic = Math.Pow((1 + TesouroSelic.taxaSelicAnual), 1.0 / 12.0) - 1;
             decimal w = (decimal)Math.Pow((1 + taxaMensalSelic), periodo);
             decimal montanteSelic = (investimentoInicial * w) + (aporteMensal * ((w - 1)/(decimal)taxaMensalSelic));
 
-            double ipcaAnual = TesouroIPCA.ipcaAnual;
-            double ipcaMensal = Math.Pow((1 + ipcaAnual), 1.0 / 12.0) - 1;
-            double fixaAnual = TesouroIPCA.FixaAnual;
-            double fixaMensal = Math.Pow((1 + fixaAnual), 1.0 / 12.0) - 1;
+            double ipcaMensal = Math.Pow((1 + TesouroIPCA.ipcaAnual), 1.0 / 12.0) - 1;
+            double fixaMensal = Math.Pow((1 + TesouroIPCA.FixaAnual), 1.0 / 12.0) - 1;
             double taxaIpcaTotalMensal = (1 + fixaMensal) * (1 + ipcaMensal) - 1;
             decimal x = (decimal)Math.Pow((1 + taxaIpcaTotalMensal), periodo);
             decimal montanteIpca = (investimentoInicial * x) + (aporteMensal * ((x - 1)/(decimal) taxaIpcaTotalMensal));
-
             double cdiAnual = CDB.cdi;
             double taxaMensalCdi = Math.Pow((1 + cdiAnual), 1.0 / 12.0) - 1;
             decimal y = (decimal)Math.Pow((1 + taxaMensalCdi), periodo);
             decimal montanteCDB = (investimentoInicial * y) + (aporteMensal * ((y - 1) / (decimal)taxaMensalCdi));
 
-            double taxaReferencial = Poupanca.referencial;
             double taxaPoupançaMensal;
             if (TesouroSelic.taxaSelicAnual > 0.085)
             {
-                taxaPoupançaMensal = 0.005 + taxaReferencial;
+                taxaPoupançaMensal = 0.005 + Poupanca.referencial;
             }
             else
             {
-                taxaPoupançaMensal = taxaReferencial + taxaMensalSelic;
+                taxaPoupançaMensal = Poupanca.referencial + taxaMensalSelic;
             }
             decimal z = (decimal)Math.Pow((1 + taxaPoupançaMensal), periodo);
             decimal montantePoupanca = (investimentoInicial * z) + (aporteMensal * ((z - 1) / (decimal)taxaPoupançaMensal));
@@ -48,7 +43,6 @@ namespace Investimento_Financeiro.investimentos
 
             Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20}", "Montante Selic", "Montante IPCA+", "Montante CDB", "Montante Poupança");
             Console.WriteLine("{0,-20:C2} {1,-20:C2} {2,-20:C2} {3,-20:C2}", montanteSelic, montanteIpca, montanteCDB, montantePoupanca);
-            return 0;
         }
     }
 }

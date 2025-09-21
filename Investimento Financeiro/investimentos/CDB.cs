@@ -16,7 +16,6 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-
             double taxaCdi = CDB.cdi;
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;

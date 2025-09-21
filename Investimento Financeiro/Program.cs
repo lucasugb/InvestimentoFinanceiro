@@ -334,6 +334,7 @@ do
                         Console.WriteLine("Opção inválida, tente novamente.");
                     }
                 }
+                Comparar.Comparacao(investimentoInicial, aporteMensal, periodo, unidade);
                 break;
 
             case 0:

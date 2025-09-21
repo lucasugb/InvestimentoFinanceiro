@@ -17,10 +17,8 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            double taxaFixaAnual = TesouroIPCA.FixaAnual;
-            double taxaIpcaAnual = TesouroIPCA.ipcaAnual;
-            decimal taxaFixaMensal = (decimal)Math.Pow(1 + (taxaFixaAnual), 1.0 / 12.0) - 1;
-            decimal ipca = (decimal)Math.Pow((1 + taxaIpcaAnual), 1.0 / 12.0) - 1; ;
+            decimal taxaFixaMensal = (decimal)Math.Pow(1 + (TesouroIPCA.FixaAnual), 1.0 / 12.0) - 1;
+            decimal ipca = (decimal)Math.Pow((1 + TesouroIPCA.ipcaAnual), 1.0 / 12.0) - 1; ;
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;

@@ -18,24 +18,23 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            double taxaReferencial = Poupanca.referencial;
             double selicAnual = TesouroSelic.taxaSelicAnual;
             decimal taxaPoupancaMensal;
 
             if (selicAnual > 0.085)
             {
-                taxaPoupancaMensal = 0.005m + (decimal)taxaReferencial;
+                taxaPoupancaMensal = 0.005m + (decimal)Poupanca.referencial;
             }
             else
             {
-                taxaPoupancaMensal = (decimal)taxaReferencial + ((decimal)Math.Pow(selicAnual, 1.0 / 12.0) * 0.7m);
+                taxaPoupancaMensal = (decimal)Poupanca.referencial + ((decimal)Math.Pow(selicAnual, 1.0 / 12.0) * 0.7m);
             }
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
             bool aviso = false;
             int mesSuperado = 0;
-            Console.WriteLine("Mês\tJuros Mês\tTotal Investido\tJuros Acumulado\tMontante");
+            Console.WriteLine("{0,-5} {1,-20} {2,-20} {3,-20} {4,-20}", "Mês", "Juros Mês", "Total Investido", "Juros Acumulado", "Montante");
 
             for (int mes = 1; mes <= periodo; mes++)
             {
@@ -44,7 +43,7 @@ namespace Investimento_Financeiro.investimentos
                 jurosAcumulado += jurosMes;
                 montante += aporteMensal;
                 totalInvestido += aporteMensal;
-                Console.WriteLine($"{mes}\t{jurosMes:C}\t{totalInvestido:C}\t{jurosAcumulado:C}\t{montante:C}");
+                Console.WriteLine("{0,-5} {1,-20:C2} {2,-20:C2} {3,-20:C2} {4,-20:C2}", mes, jurosMes, totalInvestido, jurosAcumulado, montante);
 
                 if (aviso == false && jurosMes > aporteMensal)
                 {
