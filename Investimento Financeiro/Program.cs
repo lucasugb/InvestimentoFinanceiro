@@ -32,7 +32,7 @@ do
                     Console.WriteLine("Informe o Investimento Inicial: ");
                     string valorInvIni = Console.ReadLine();
 
-                    if (decimal.TryParse(valorInvIni, out investimentoInicial))
+                    if (decimal.TryParse(valorInvIni, out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -47,7 +47,7 @@ do
                     Console.WriteLine("Informe o Aporte Mensal: ");
                     string valorAM = Console.ReadLine();
 
-                    if (decimal.TryParse(valorAM, out aporteMensal))
+                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -74,7 +74,7 @@ do
                     Console.WriteLine("Informe o período de investimento: ");
                     string valorP = Console.ReadLine();
 
-                    if (int.TryParse(valorP, out periodo))
+                    if (int.TryParse(valorP, out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -95,7 +95,7 @@ do
                     Console.WriteLine("Informe o Investimento Inicial: ");
                     string valorII = Console.ReadLine();
 
-                    if (decimal.TryParse(valorII, out investimentoInicial))
+                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -110,7 +110,7 @@ do
                     Console.WriteLine("Informe o Aporte Mensal: ");
                     string valorAM = Console.ReadLine();
 
-                    if (decimal.TryParse(valorAM, out aporteMensal))
+                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -137,7 +137,7 @@ do
                     Console.WriteLine("Informe o período de investimento: ");
                     string valorP = Console.ReadLine();
 
-                    if (int.TryParse(valorP, out periodo))
+                    if (int.TryParse(valorP, out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -158,7 +158,7 @@ do
                     Console.WriteLine("Informe o Investimento Inicial: ");
                     string valorII = Console.ReadLine();
 
-                    if (decimal.TryParse(valorII, out investimentoInicial))
+                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -173,7 +173,7 @@ do
                     Console.WriteLine("Informe o Aporte Mensal: ");
                     string valorAM = Console.ReadLine();
 
-                    if (decimal.TryParse(valorAM, out aporteMensal))
+                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -200,7 +200,7 @@ do
                     Console.WriteLine("Informe o período de investimento: ");
                     string valorP = Console.ReadLine();
 
-                    if (int.TryParse(valorP, out periodo))
+                    if (int.TryParse(valorP, out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -214,41 +214,6 @@ do
 
             case 4:
                 investimentoInicial = 0;
-                entradaValida = false;
-                while (entradaValida == false)
-                {
-                    Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valor1 = Console.ReadLine();
-
-                    if (decimal.TryParse(valor1, out investimentoInicial))
-                    {
-                        entradaValida = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Opção inválida, tente novamente.");
-                    }
-                }
-                Console.WriteLine("Informe o Aporte Mensal: ");
-                aporteMensal = Convert.ToDecimal(Console.ReadLine());
-                Console.WriteLine("[A] - Meses");
-                Console.WriteLine("[B] - Anos");
-                unidade = Console.ReadLine().ToUpper();
-                if (unidade != "A" && unidade != "B")
-                {
-                    do
-                    {
-                        Console.WriteLine("Opção inválida, tente novamente.");
-                        unidade = Console.ReadLine().ToUpper();
-                    } while (unidade != "A" && unidade != "B");
-                }
-                Console.WriteLine("Informe o período: ");
-                periodo = Convert.ToInt32(Console.ReadLine());
-                Poupanca.CalculoPoupanca(investimentoInicial, aporteMensal, periodo, unidade);
-                break;
-
-            case 5:
-                investimentoInicial = 0;
                 aporteMensal = 0;
                 entradaValida = false;
                 while (entradaValida == false)
@@ -256,7 +221,7 @@ do
                     Console.WriteLine("Informe o Investimento Inicial: ");
                     string valorII = Console.ReadLine();
 
-                    if (decimal.TryParse(valorII, out investimentoInicial))
+                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -271,7 +236,7 @@ do
                     Console.WriteLine("Informe o Aporte Mensal: ");
                     string valorAM = Console.ReadLine();
 
-                    if (decimal.TryParse(valorAM, out aporteMensal))
+                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -298,7 +263,70 @@ do
                     Console.WriteLine("Informe o período de investimento: ");
                     string valorP = Console.ReadLine();
 
-                    if (int.TryParse(valorP, out periodo))
+                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    {
+                        entradaValida = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida, tente novamente.");
+                    }
+                }
+                Poupanca.CalculoPoupanca(investimentoInicial, aporteMensal, periodo, unidade);
+                break;
+
+            case 5:
+                investimentoInicial = 0;
+                aporteMensal = 0;
+                entradaValida = false;
+                while (entradaValida == false)
+                {
+                    Console.WriteLine("Informe o Investimento Inicial: ");
+                    string valorII = Console.ReadLine();
+
+                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
+                    {
+                        entradaValida = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida, tente novamente.");
+                    }
+                }
+                entradaValida = false;
+                while (entradaValida == false)
+                {
+                    Console.WriteLine("Informe o Aporte Mensal: ");
+                    string valorAM = Console.ReadLine();
+
+                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    {
+                        entradaValida = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida, tente novamente.");
+                    }
+                }
+                Console.WriteLine("[A] - Meses");
+                Console.WriteLine("[B] - Anos");
+                unidade = Console.ReadLine().ToUpper();
+                while (unidade != "A" && unidade != "B")
+                {
+
+                    Console.WriteLine("Opção inválida, tente novamente.");
+                    unidade = Console.ReadLine().ToUpper();
+
+                }
+
+                periodo = 0;
+                entradaValida = false;
+                while (entradaValida == false)
+                {
+                    Console.WriteLine("Informe o período de investimento: ");
+                    string valorP = Console.ReadLine();
+
+                    if (int.TryParse(valorP, out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
