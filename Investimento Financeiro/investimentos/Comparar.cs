@@ -23,8 +23,7 @@ namespace Investimento_Financeiro.investimentos
             double taxaIpcaTotalMensal = (1 + fixaMensal) * (1 + ipcaMensal) - 1;
             decimal x = (decimal)Math.Pow((1 + taxaIpcaTotalMensal), periodo);
             decimal montanteIpca = (investimentoInicial * x) + (aporteMensal * ((x - 1)/(decimal) taxaIpcaTotalMensal));
-            double cdiAnual = CDB.cdi;
-            double taxaMensalCdi = Math.Pow((1 + cdiAnual), 1.0 / 12.0) - 1;
+            double taxaMensalCdi = Math.Pow((1 + CDB.cdi), 1.0 / 12.0) - 1;
             decimal y = (decimal)Math.Pow((1 + taxaMensalCdi), periodo);
             decimal montanteCDB = (investimentoInicial * y) + (aporteMensal * ((y - 1) / (decimal)taxaMensalCdi));
 

@@ -18,16 +18,16 @@ namespace Investimento_Financeiro.investimentos
                 periodo = periodo * 12;
             }
 
-            double selicAnual = TesouroSelic.taxaSelicAnual;
+            double selicMensal = Math.Pow((1 + TesouroSelic.taxaSelicAnual),1.0 / 12.0) - 1;
             decimal taxaPoupancaMensal;
 
-            if (selicAnual > 0.085)
+            if (selicMensal > 0.085)
             {
                 taxaPoupancaMensal = 0.005m + (decimal)Poupanca.referencial;
             }
             else
             {
-                taxaPoupancaMensal = (decimal)Poupanca.referencial + ((decimal)Math.Pow(selicAnual, 1.0 / 12.0) * 0.7m);
+                taxaPoupancaMensal = (decimal)selicMensal * 0.7m + (decimal)Poupanca.referencial ;
             }
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
