@@ -1,5 +1,5 @@
 ﻿using Investimento_Financeiro.investimentos;
-int opcao;
+int opcao; //
 double TPoupancaM;
 if (TesouroSelic.taxaSelicAnual > 0.085)
 {
