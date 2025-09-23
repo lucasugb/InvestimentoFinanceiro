@@ -14,18 +14,15 @@ namespace Investimento_Financeiro.investimentos
             {
                 periodo = periodo * 12;
             }
-            double taxaMensalSelic = Math.Pow((1 + TesouroSelic.taxaSelicAnual), 1.0 / 12.0) - 1;
-            decimal w = (decimal)Math.Pow((1 + taxaMensalSelic), periodo);
-            decimal montanteSelic = (investimentoInicial * w) + (aporteMensal * ((w - 1)/(decimal)taxaMensalSelic));
+            decimal w = (decimal)Math.Pow((1 + TesouroSelic.taxaMensal), periodo);
+            decimal montanteSelic = (investimentoInicial * w) + (aporteMensal * ((w - 1)/(decimal)TesouroSelic.taxaMensal));
 
-            double ipcaMensal = Math.Pow((1 + TesouroIPCA.ipcaAnual), 1.0 / 12.0) - 1;
-            double fixaMensal = Math.Pow((1 + TesouroIPCA.FixaAnual), 1.0 / 12.0) - 1;
-            double taxaIpcaTotalMensal = (1 + fixaMensal) * (1 + ipcaMensal) - 1;
-            decimal x = (decimal)Math.Pow((1 + taxaIpcaTotalMensal), periodo);
-            decimal montanteIpca = (investimentoInicial * x) + (aporteMensal * ((x - 1)/(decimal) taxaIpcaTotalMensal));
-            double taxaMensalCdi = Math.Pow((1 + CDB.cdi), 1.0 / 12.0) - 1;
-            decimal y = (decimal)Math.Pow((1 + taxaMensalCdi), periodo);
-            decimal montanteCDB = (investimentoInicial * y) + (aporteMensal * ((y - 1) / (decimal)taxaMensalCdi));
+
+            decimal x = (decimal)Math.Pow((1 + TesouroIPCA.taxaMensal), periodo);
+            decimal montanteIpca = (investimentoInicial * x) + (aporteMensal * ((x - 1)/(decimal)TesouroIPCA.taxaMensal));
+
+            decimal y = (decimal)Math.Pow((1 + CDB.taxaCdiMensal), periodo);
+            decimal montanteCDB = (investimentoInicial * y) + (aporteMensal * ((y - 1) / (decimal)CDB.taxaCdiMensal));
 
             double taxaPoupançaMensal;
             if (TesouroSelic.taxaSelicAnual > 0.085)
@@ -34,7 +31,7 @@ namespace Investimento_Financeiro.investimentos
             }
             else
             {
-                taxaPoupançaMensal = Poupanca.referencial + taxaMensalSelic;
+                taxaPoupançaMensal = 0.7 * TesouroSelic.taxaMensal + Poupanca.referencial;
             }
             decimal z = (decimal)Math.Pow((1 + taxaPoupançaMensal), periodo);
             decimal montantePoupanca = (investimentoInicial * z) + (aporteMensal * ((z - 1) / (decimal)taxaPoupançaMensal));

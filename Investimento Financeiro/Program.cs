@@ -7,7 +7,7 @@ if (TesouroSelic.taxaSelicAnual > 0.085)
 }
 else
 {
-    TPoupancaM = Poupanca.referencial + (Math.Pow(TesouroSelic.taxaSelicAnual, 1.0 / 12.0) * 0.7);
+    TPoupancaM = (TesouroSelic.taxaMensal * 0.7) + Poupanca.referencial;
 }
 double TPoupancaA = Math.Pow((1 + TPoupancaM), 12) - 1;
 do
@@ -82,8 +82,8 @@ do
             case 2:
                 entradaValida = false;
                 investimentoInicial = 0;
-                while (entradaValida == false)
-                    Console.WriteLine("Informe o Investimento Inicial: ");
+                Console.WriteLine("Informe o Investimento Inicial: ");
+                while (entradaValida == false)       
                 {
                     if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {

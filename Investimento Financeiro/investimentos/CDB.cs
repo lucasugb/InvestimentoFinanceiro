@@ -9,18 +9,17 @@ namespace Investimento_Financeiro.investimentos
     public class CDB
     {
         public static double cdi = 0.129;
+        public static double taxaCdiMensal = Math.Pow((1 + cdi), 1.0 / 12.0) - 1;
         public static decimal CalculoCDB(decimal investimentoInicial, decimal aporteMensal, int periodo, string unidade)
         {
             if (unidade == "B")
             {
                 periodo = periodo * 12;
             }
-
-            double taxaCdi = CDB.cdi;
             decimal montante = investimentoInicial;
             decimal jurosAcumulado = 0;
             decimal totalInvestido = investimentoInicial;
-            decimal taxaCdiMensal = (decimal)Math.Pow((1 + taxaCdi), 1.0 / 12.0) - 1;
+            decimal taxaCdiMensal = (decimal)Math.Pow((1 + cdi), 1.0 / 12.0) - 1;
             bool aviso = false;
             int mesSuperado = 0;
             Console.WriteLine("{0,-5} {1,-20} {2,-20} {3,-20} {4,-20}", "Mês", "Juros Mês", "Total Investido", "Juros Acumulado", "Montante");
