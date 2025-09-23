@@ -23,15 +23,12 @@ do
         switch (opcao)
         {
             case 1:
-                decimal investimentoInicial = 0;
-                decimal aporteMensal = 0;
                 bool entradaValida = false;
+                decimal investimentoInicial = 0;
+                Console.WriteLine("Informe o Investimento Inicial: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valorInvIni = Console.ReadLine();
-
-                    if (decimal.TryParse(valorInvIni, out investimentoInicial) && investimentoInicial >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -41,12 +38,11 @@ do
                     }
                 }
                 entradaValida = false;
+                decimal aporteMensal = 0;
+                Console.WriteLine("Informe o Aporte Mensal: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Aporte Mensal: ");
-                    string valorAM = Console.ReadLine();
-
-                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -68,12 +64,10 @@ do
 
                 int periodo = 0;
                 entradaValida = false;
+                Console.WriteLine("Informe o período de investimento: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o período de investimento: ");
-                    string valorP = Console.ReadLine();
-
-                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    if (int.TryParse(Console.ReadLine(), out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -86,15 +80,12 @@ do
                 break;
 
             case 2:
-                investimentoInicial = 0;
-                aporteMensal = 0;
                 entradaValida = false;
+                investimentoInicial = 0;
                 while (entradaValida == false)
-                {
                     Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valorII = Console.ReadLine();
-
-                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
+                {
+                    if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -104,12 +95,11 @@ do
                     }
                 }
                 entradaValida = false;
+                aporteMensal = 0;
+                Console.WriteLine("Informe o Aporte Mensal: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Aporte Mensal: ");
-                    string valorAM = Console.ReadLine();
-
-                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -131,12 +121,10 @@ do
 
                 periodo = 0;
                 entradaValida = false;
+                Console.WriteLine("Informe o período de investimento: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o período de investimento: ");
-                    string valorP = Console.ReadLine();
-
-                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    if (int.TryParse(Console.ReadLine(), out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -149,15 +137,12 @@ do
                 break;
 
             case 3:
-                investimentoInicial = 0;
-                aporteMensal = 0;
                 entradaValida = false;
+                investimentoInicial = 0;
+                Console.WriteLine("Informe o Investimento Inicial: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valorII = Console.ReadLine();
-
-                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -167,12 +152,11 @@ do
                     }
                 }
                 entradaValida = false;
+                aporteMensal = 0;
+                Console.WriteLine("Informe o Aporte Mensal: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Aporte Mensal: ");
-                    string valorAM = Console.ReadLine();
-
-                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -194,12 +178,10 @@ do
 
                 periodo = 0;
                 entradaValida = false;
+                Console.WriteLine("Informe o período de investimento: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o período de investimento: ");
-                    string valorP = Console.ReadLine();
-
-                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    if (int.TryParse(Console.ReadLine(), out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -212,15 +194,12 @@ do
                 break;
 
             case 4:
-                investimentoInicial = 0;
-                aporteMensal = 0;
                 entradaValida = false;
+                investimentoInicial = 0;
+                Console.WriteLine("Informe o Investimento Inicial: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valorII = Console.ReadLine();
-
-                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -230,12 +209,11 @@ do
                     }
                 }
                 entradaValida = false;
+                aporteMensal = 0;
+                Console.WriteLine("Informe o Aporte Mensal: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Aporte Mensal: ");
-                    string valorAM = Console.ReadLine();
-
-                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -257,12 +235,10 @@ do
 
                 periodo = 0;
                 entradaValida = false;
+                Console.WriteLine("Informe o período de investimento: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o período de investimento: ");
-                    string valorP = Console.ReadLine();
-
-                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    if (int.TryParse(Console.ReadLine(), out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
@@ -275,15 +251,12 @@ do
                 break;
 
             case 5:
-                investimentoInicial = 0;
-                aporteMensal = 0;
                 entradaValida = false;
+                investimentoInicial = 0;
+                Console.WriteLine("Informe o Investimento Inicial: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Investimento Inicial: ");
-                    string valorII = Console.ReadLine();
-
-                    if (decimal.TryParse(valorII, out investimentoInicial) && investimentoInicial >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out investimentoInicial) && investimentoInicial >= 0)
                     {
                         entradaValida = true;
                     }
@@ -293,12 +266,11 @@ do
                     }
                 }
                 entradaValida = false;
+                aporteMensal = 0;
+                Console.WriteLine("Informe o Aporte Mensal: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o Aporte Mensal: ");
-                    string valorAM = Console.ReadLine();
-
-                    if (decimal.TryParse(valorAM, out aporteMensal) && aporteMensal >= 0)
+                    if (decimal.TryParse(Console.ReadLine(), out aporteMensal) && aporteMensal >= 0)
                     {
                         entradaValida = true;
                     }
@@ -320,12 +292,10 @@ do
 
                 periodo = 0;
                 entradaValida = false;
+                Console.WriteLine("Informe o período de investimento: ");
                 while (entradaValida == false)
                 {
-                    Console.WriteLine("Informe o período de investimento: ");
-                    string valorP = Console.ReadLine();
-
-                    if (int.TryParse(valorP, out periodo) && periodo > 0)
+                    if (int.TryParse(Console.ReadLine(), out periodo) && periodo > 0)
                     {
                         entradaValida = true;
                     }
